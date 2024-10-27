@@ -36,11 +36,11 @@ export class DialogAddEditComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private snackBar: MatSnackBar
   ) {
-    // Inicializa los textos de acción según si hay datos para editar o no
+    
     this.tituloAccion = data ? 'Editar' : 'Agregar';
     this.botonAccion = data ? 'Actualizar' : 'Crear';
     
-    // Inicializa el formulario con validadores
+    
     this.formCustomer = this.fb.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -55,13 +55,13 @@ export class DialogAddEditComponent {
   }
 
   ngOnInit(): void {
-    // Llama a patchDataToForm en ngOnInit si data está presente
+    
     if (this.data) {
       this.patchDataToForm(this.data);
     }
   }
 
-  // Método para cargar datos en el formulario si existen
+  
   private patchDataToForm(data: any): void {
     this.formCustomer.patchValue({
       name: data.name,
